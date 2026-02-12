@@ -1,0 +1,60 @@
+
+Project Title: "If Love Was a Movie - every story has a song, whats yours?? "
+
+Core Concept
+
+An immersive, animated web-based interactive experience that transitions from a "Playful Romance" aesthetic into a personalized "Movie Premiere" reveal. By answering a series of five psychologically driven questions, users are matched with one of mentioned iconic Indian films that best reflects their romantic "vibe".
+
+Visual & Auditory Narrative
+
+Aesthetic: A "Cute-alist" design featuring a soft bright red, white and shades of red palette, the bright red is highly used. utilizing hand-drawn lively heart characters and cloud illustrations with the small hearts floating in the background or at the empty spaces of the website.
+
+The Reveal: The experience culminates in a "Movie Poster" which are provided result page that automatically triggers the specific BGM (Background Music) of the matched film, creating an emotional and high-impact conclusion. there should be a animation while the poster is revealed automatically playing the bmg in the background, movie poster along with the specific music bgm are attached.
+
+The Hook: A real-time "Premiere Countdown" to February 14th, 2026, creating urgency and social shareability.
+
+User Journey (Page-by-Page)
+
+1.The Hook (Landing): Featuring the "if love was a movie" title (in this words like the, was, a, movie are in the font "The Season" and the word love is in the font "Lovely" )and the floating cupid ensemble.
+2.The Prologue: An interactive envelope opening to set the mood: "Stop overthinking the plot and just play your part"you can display these lines inside the envelope graphic from attached PDF assets to make the transition feel like a "Secret Script" reveal..
+3.The Script (5 Scenes): the concept is the user answer the questions by selecting the options, each option carries the connection with the movies in a random order, for each question some points are added to the respective movie by the end the one movie with more point is stated as the suitable movie.
+96 (The Nostalgic),Vinnaithaandi Varuvaayaa (The Aesthetic),Sita Ramam (The Poetic),Siva Manasula Sakthi (SMS) (The Fun/Chaos),Ghilli (The High-Energy/Protective),Lover (The Intense/Raw),Chennai Express (The Vibrant/Adventurous),Thiruchitrambalam (The Best-Friend/Soulful),Varanam Aayiram (The Inspirational/Deep),Premam (The Multi-Phase/Cool).
+1. How did you two first cross paths (or how would you want to)?
+Awkwardly staring at each other at a school reunion after 22 years of silence. (96)
+I saw them on a bridge, and it looked like a high-budget music video for a rejection song. (Vinnaithaandi Varuvaayaa)
+Through a handwritten letter delivered by a stranger in a war zone because we hate DMs. (Sita Ramam)
+We were trying to insult each other in a public place and realized our hate was actually compatibility. (Siva Manasula Sakthi)
+
+2. Pick your preferred way to handle a relationship crisis:
+Move to a foreign country, get six-pack abs, and start a fitness transformation montage. (Varanam Aayiram)
+Grow a thick, questionable beard, wear a black shirt, and walk in slow motion to sad music. (Premam)
+Talk to my "best friend" neighbor about it while eating simple home food and ignoring the obvious. (Thiruchitrambalam)
+Force my partner to climb three hundred temple steps while I narrate our problems at high volume. (Chennai Express)
+
+3. What is your idea of the ultimate romantic gesture?
+Keeping a plastic bag full of old school uniforms and crusty memories for two decades. (96)
+Risking my entire existence to deliver a secret message across international borders. (Sita Ramam)
+Winning a high-stakes sports trophy just to prove I can protect you from a local goon. (Ghilli)
+Deleting all my social media and making your approval my only source of dopamine. (Lover)
+
+4. What's the 'vibe' of your shared playlist?
+Melancholic melodies that make you miss a person you’re currently sitting right next to. (96)
+A chaotic mix of three different genres depending on which "phase" of our life we are failing in. (Premam)
+Simple, soulful local tunes about life in a middle-class neighborhood with zero "aesthetic" filters. (Thiruchitrambalam)
+High-energy dance numbers that involve an unnecessary amount of trains and lungis. (Chennai Express)
+
+5. If your relationship was a book title, it would be:
+The Art of Being Rejected Beautifully While Looking at the Clouds. (Vinnaithaandi Varuvaayaa)
+Chaos, Crackers, and Constant Fighting: A Guide to Mutual Verbal Abuse. (Siva Manasula Sakthi)
+How to Turn Your Best Friend into Your Spouse Without Using Your Brain. (Thiruchitrambalam)
+A Guide to Loving Someone Way Too Much for Your Own Emotional Safety. (Lover)
+
+The Logic:
+The backend of this quiz operates on a Linear Scoring Algorithm. Each of the 10 movies is stored as a unique key in a "Scoreboard" object, initialized at zero. When a user selects an option, the system identifies the specific movie ID linked to that answer and performs an increment operation ($Score_{movie} = Score_{movie} + 1$). After the fifth question, the logic executes a Math.max operation across the object keys to identify the winner. This ensures the result isn't a random guess, but a direct reflection of the cumulative "energy" chosen throughout the quiz.
+4.The Final Cut (Result): The experience culminates in a "Movie Poster" which are provided result page that automatically triggers the specific BGM (Background Music) of the matched film, creating an emotional and high-impact conclusion. there should be a animation while the poster is revealed automatically playing the bmg in the background, movie poster along with the specific music bgm are attached.
+5.The Countdown: A live timer leading to the Valentine’s Day "Premiere".
+
+Technical Framework
+⦁Platform: Responsive Web App (Mobile-First).
+⦁Interaction: Framer Motion for cinematic transitions and Howler.js for managed audio fades.
+⦁Logic: A hidden scoring system that maps user responses to specific cinematic archetypes without revealing the mechanism to the user.

@@ -1,0 +1,307 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Brick Sans";
+  src: url("/NTBrickSans.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "DM Sans", system-ui, sans-serif;
+  background: #ff3131;
+  color: #231f20;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.text-stroke {
+  text-shadow: 0 3px 0 rgba(227, 39, 45, 0.15);
+}
+
+.emoji-heart {
+  font-family: "Noto Color Emoji", "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.15));
+  will-change: transform, opacity;
+  animation: emoji-float var(--dur, 16s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+.ambient-liquid {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(56px);
+  will-change: transform, opacity;
+}
+
+.ambient-liquid-a {
+  width: min(62vw, 820px);
+  height: min(42vw, 580px);
+  left: -12%;
+  top: 12%;
+  animation: ambient-liquid-a 20s ease-in-out infinite;
+}
+
+.ambient-liquid-b {
+  width: min(56vw, 760px);
+  height: min(38vw, 520px);
+  right: -10%;
+  bottom: -2%;
+  animation: ambient-liquid-b 24s ease-in-out infinite;
+}
+
+.ambient-float-heart {
+  will-change: transform, opacity;
+  animation: ambient-heart-rise 14s ease-in-out infinite;
+}
+
+.ambient-particle {
+  will-change: transform, opacity;
+  animation: ambient-particle-drift 12s linear infinite;
+}
+
+.ambient-particle-neon {
+  box-shadow:
+    0 0 5px rgba(255, 255, 255, 0.85),
+    0 0 12px rgba(217, 217, 217, 0.75),
+    0 0 20px rgba(166, 166, 166, 0.6);
+  animation: ambient-particle-drift 12s linear infinite, ambient-neon-flicker 2.8s ease-in-out infinite;
+}
+
+.ambient-heart-wander {
+  will-change: transform, opacity;
+  animation: ambient-heart-wander 18s ease-in-out infinite;
+}
+
+.heart-cursor {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 34px;
+  height: 34px;
+  will-change: transform;
+}
+
+.heart-cursor-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: rotate(-45deg);
+  border-radius: 9px;
+  background: linear-gradient(150deg, #ffffff 0%, #ffd4df 35%, #ff7a90 100%);
+  box-shadow:
+    inset -2px -2px 6px rgba(140, 56, 70, 0.25),
+    inset 2px 2px 6px rgba(255, 255, 255, 0.55),
+    0 5px 14px rgba(90, 20, 35, 0.35);
+}
+
+.heart-cursor-inner::before,
+.heart-cursor-inner::after {
+  content: "";
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border-radius: 9999px;
+  background: inherit;
+}
+
+.heart-cursor-inner::before {
+  top: -17px;
+  left: 0;
+}
+
+.heart-cursor-inner::after {
+  left: 17px;
+  top: 0;
+}
+
+.heart-cursor-slide {
+  animation: heart-cursor-slide 0.9s ease-in-out infinite;
+}
+
+.heart-pop {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-size: 18px;
+  text-shadow:
+    0 0 6px rgba(255, 255, 255, 0.65),
+    0 0 12px rgba(217, 217, 217, 0.55);
+  opacity: 0;
+}
+
+.heart-pop-animate {
+  animation: heart-pop-up 0.8s ease-out forwards;
+}
+
+@keyframes ambient-liquid-a {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate3d(8%, -6%, 0) scale(1.08);
+    opacity: 0.62;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.9;
+  }
+}
+
+@keyframes ambient-liquid-b {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.78;
+  }
+  50% {
+    transform: translate3d(-8%, 6%, 0) scale(1.05);
+    opacity: 0.58;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.78;
+  }
+}
+
+@keyframes ambient-heart-rise {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.08;
+  }
+  50% {
+    transform: translate3d(5px, -10px, 0);
+    opacity: 0.22;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.08;
+  }
+}
+
+@keyframes emoji-float {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0.45;
+  }
+  25% {
+    transform: translate3d(var(--dx1, 16px), var(--dy1, -12px), 0) rotate(4deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate3d(var(--dx2, -14px), var(--dy2, -24px), 0) rotate(-5deg);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translate3d(var(--dx3, 12px), var(--dy3, -8px), 0) rotate(3deg);
+    opacity: 0.65;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0.45;
+  }
+}
+
+@keyframes ambient-particle-drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translate3d(8px, -6px, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.2;
+  }
+}
+
+@keyframes ambient-neon-flicker {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  45% {
+    opacity: 0.95;
+  }
+}
+
+@keyframes heart-cursor-slide {
+  0%,
+  100% {
+    transform: rotate(-45deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(-45deg) translate3d(2px, -2px, 0);
+  }
+}
+
+@keyframes heart-pop-up {
+  0% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(calc(-50% + (var(--tx, 0px) * 0.58)), calc(-92% + (var(--ty, 0px) * 0.58))) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--tx, 0px)), calc(-122% + var(--ty, 0px))) scale(0.82);
+  }
+}
+
+@keyframes ambient-heart-wander {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.95);
+    opacity: 0.35;
+  }
+  25% {
+    transform: translate3d(12px, -10px, 0) scale(1.05);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate3d(-10px, -18px, 0) scale(1);
+    opacity: 0.82;
+  }
+  75% {
+    transform: translate3d(8px, -6px, 0) scale(1.04);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(0.95);
+    opacity: 0.35;
+  }
+}
+
+@media (max-width: 640px) {
+  .ambient-liquid {
+    filter: blur(40px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-liquid-a,
+  .ambient-liquid-b,
+  .ambient-float-heart,
+  .ambient-heart-wander,
+  .ambient-particle,
+  .ambient-particle-neon,
+  .emoji-heart,
+  .heart-cursor-slide,
+  .heart-pop-animate {
+    animation: none !important;
+  }
+}
